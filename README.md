@@ -1,0 +1,2 @@
+# Solved
+Solved Algorithm problems
