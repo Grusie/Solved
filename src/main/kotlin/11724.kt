@@ -18,9 +18,9 @@ import java.util.StringTokenizer
  * 시간 복잡도 : N^2
  * 변수 : 노드들을 담을 2차원 배열, 연결 요소의 수, 전체 수, visited
  **/
-lateinit var visited : Array<Boolean>
-lateinit var array : Array<ArrayList<Int>>
-var count = 0
+private lateinit var visited : Array<Boolean>
+private lateinit var array : Array<ArrayList<Int>>
+private var count = 0
 
 fun main(){
     val br = BufferedReader(InputStreamReader(System.`in`))
