@@ -38,7 +38,7 @@ fun main(){
             val rightY = nextToken().toInt()
 
             for(x in leftX until rightX){
-                for(y in height - rightY..<height - leftY)
+                for(y in height - rightY..height - leftY)
                     array[y][x] = false
             }
         }

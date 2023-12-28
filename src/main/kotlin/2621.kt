@@ -45,7 +45,7 @@ fun calcScore(colorFlag: Boolean, number: Array<Int>): Int {
     var score = 0
 
     //숫자가 전부 연속
-    if(number.max() == 1) {
+    if(number.maxOrNull() == 1) {
         for (i in number.indices) {
             if (number[i] == 1) {
                 for(j in 1 until 5){
@@ -59,7 +59,7 @@ fun calcScore(colorFlag: Boolean, number: Array<Int>): Int {
         }
     } else continueAll = false
 
-    val maxIndex = number.lastIndexOf(number.max())
+    val maxIndex = number.lastIndexOf(number.maxOrNull())
     val second = number.indexOfFirst { it == 2 && number.indexOf(it) != maxIndex }
     //val second = secondMap[0]
 
@@ -74,7 +74,7 @@ fun calcScore(colorFlag: Boolean, number: Array<Int>): Int {
         score = max(score, maxIndex + 500)
     }
 
-    return when (number.max()) {
+    return when (number.maxOrNull()) {
         4 -> max(score,maxIndex + 800)
         3 -> {
             if(second != -1) max(score,maxIndex*10 + second + 700)
