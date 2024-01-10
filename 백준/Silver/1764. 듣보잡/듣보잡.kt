@@ -25,7 +25,7 @@ fun main(){
         hashSet.add(br.readLine())
     }
 
-    val result = ArrayList<String>()
+    val result = PriorityQueue<String>()
 
     repeat(M){
         val item = br.readLine()
@@ -33,12 +33,15 @@ fun main(){
             result.add(item)
     }
 
-    result.sort()
+    //result.sort()
 
     bw.write("${result.size}\n")
-    result.forEach {
-        bw.write("$it\n")
+    while(result.isNotEmpty()){
+        bw.write("${result.poll()}\n")
     }
+    /*result.forEach {
+        bw.write("$it\n")
+    }*/
     bw.flush()
 
     bw.close()
