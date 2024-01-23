@@ -4,6 +4,7 @@ import java.io.BufferedReader
 import java.io.BufferedWriter
 import java.io.InputStreamReader
 import java.io.OutputStreamWriter
+import java.math.BigInteger
 import java.util.StringTokenizer
 
 /**
@@ -34,7 +35,7 @@ fun main(){
         }
     }
 
-    var totalCost = 0
+    var totalCost = BigInteger("0")
     var totalDist = 0
     var index = 0
     while(index < city.size){
@@ -48,7 +49,7 @@ fun main(){
                     tempDist += dist[j]
                 }
 
-                totalCost += tempDist * city[index]
+                totalCost += BigInteger.valueOf(tempDist.toLong()) * BigInteger.valueOf(city[index].toLong())
                 totalDist += tempDist
                 index = i
                 break
@@ -56,7 +57,7 @@ fun main(){
         }
 
         if(flag){
-            totalCost += (dist.sum() - totalDist) * city[index]
+            totalCost += BigInteger.valueOf((dist.sum() - totalDist).toLong()) * BigInteger.valueOf(city[index].toLong())
             break
         }
     }
