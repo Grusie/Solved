@@ -15,38 +15,35 @@ fun main() {
 
     val (goal, k) = br.readLine().split(" ").map { it.toInt() }
     br.close()
-    val result = mutableListOf<String>()
-    val array = arrayOf(1, 2, 3)
+    val array = ArrayList<MutableList<String>>()
 
-    val resultList = mutableListOf<Int>()
+    repeat(goal + 3){
+        array.add(mutableListOf())
+    }
 
-    fun dfs(sum: Int) {
-        if (sum == goal) {
-            result.add(resultList.joinToString("+"))
-            return
-        }
+    array[1].add("1")
+    array[2].add("1+1")
+    array[2].add("2")
+    array[3].add("1+1+1")
+    array[3].add("1+2")
+    array[3].add("2+1")
+    array[3].add("3")
 
-        repeat(3) {
-            if (sum + array[it] <= goal) {
-                resultList.add(array[it])
-                dfs(sum + array[it])
-                resultList.removeLast()
+    for(i in 4..goal){
+        for(j in 1..3){
+            array[i-j].forEach {
+                array[i].add("$it+$j")
             }
         }
     }
 
-    repeat(3) {
-        resultList.add(array[it])
-        dfs(array[it])
-        resultList.removeLast()
+    if(array[goal].size < k){
+        bw.write("-1")
+    } else {
+        array[goal].sort()
+        bw.write("${array[goal][k-1]}")
     }
 
-    result.sort()
-    try {
-        bw.write("${result[k - 1]}")
-    } catch (e: Exception) {
-        bw.write("-1")
-    }
     bw.flush()
     bw.close()
 }
