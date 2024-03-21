@@ -32,7 +32,7 @@ fun main() {
     }
 
     var max = 1
-    for(i in 2..diff.min()){
+    for(i in 2..diff.minOrNull()!!){
         var flag = true
         for(index in diff.indices) {
             if (diff[index] % i != 0) {
