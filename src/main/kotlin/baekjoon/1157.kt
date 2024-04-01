@@ -32,7 +32,7 @@ fun main(){
 
     array[index] = 0
 
-    if(array.max() == max) bw.write("?")
+    if(array.maxOrNull() == max) bw.write("?")
     else bw.write("${'A' + index}")
 
     bw.flush()

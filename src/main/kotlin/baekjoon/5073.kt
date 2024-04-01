@@ -21,7 +21,7 @@ fun main(){
 
         val array = input.split(" ").map { it.toInt() }
 
-        if(array.sum() - array.max() <= array.max()){
+        if(array.sum() - array.maxOrNull()!! <= array.maxOrNull()!!){
             bw.write("Invalid\n")
             continue
         }
