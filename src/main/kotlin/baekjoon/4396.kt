@@ -6,7 +6,8 @@ import java.io.InputStreamReader
 import java.io.OutputStreamWriter
 
 /**
- * 아이디어 : 대각선까지, 지뢰가 놓여져 있는 갯수를 표시한다. 만약 지뢰가 있는 곳이 x라면, 지뢰가 있는 모든 칸이 *로 표시되어야 한다.
+ * 아이디어 : 대각선까지, 지뢰가 놓여져 있는 갯수를 표시한다. 만약 지뢰가 있는 곳이 x라면, 지뢰가 있는 모든 칸이 *로 표시되고,
+ *          아닌 곳 전부가 .로 표현되어야 한다.
  * */
 fun main() {
     val br = BufferedReader(InputStreamReader(System.`in`))
@@ -59,12 +60,12 @@ fun main() {
         }
     }
 
-        answer.forEach {
-            it.forEach {c->
-                bw.write("$c")
-            }
-            bw.write("\n")
+    answer.forEach {
+        it.forEach {c->
+            bw.write("$c")
         }
+        bw.write("\n")
+    }
     bw.flush()
     bw.close()
 }
